@@ -1,0 +1,16 @@
+name: ticket-management
+services:
+  db:
+    image: postgres:16
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}
+      interval: 2s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
+volumes:
+  postgres_data:
