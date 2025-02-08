@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { DevtoolsModule } from '@nestjs/devtools-integration';
+import { TicketModule } from './tickets/ticket.module';
 
 @Module({
 	imports: [
@@ -31,6 +32,7 @@ import { DevtoolsModule } from '@nestjs/devtools-integration';
 				},
 			}),
 		}),
+		TicketModule,
 	],
 })
 export class AppModule {}
