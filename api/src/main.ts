@@ -8,7 +8,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 dotenv.config();
 async function start() {
-	const PORT = Number(process.env.APP_PORT) || 5000;
+	const PORT = Number(process.env.PORT) || 5000;
 	const app = await NestFactory.create(AppModule, {
 		snapshot: true,
 		rawBody: true,
