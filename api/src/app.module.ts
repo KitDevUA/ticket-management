@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { DevtoolsModule } from '@nestjs/devtools-integration';
 import { TicketModule } from './tickets/ticket.module';
@@ -16,17 +16,17 @@ import { TicketModule } from './tickets/ticket.module';
 		}),
 		SequelizeModule.forRootAsync({
 			imports: [ConfigModule],
-			inject: [ConfigService],
-			useFactory: (configService: ConfigService) => ({
+			inject: [],
+			useFactory: () => ({
 				dialect: 'postgres',
-				host: configService.get('POSTGRES_HOST'),
-				port: configService.get<number>('POSTGRES_PORT'),
-				username: configService.get('POSTGRES_USER'),
-				password: configService.get('POSTGRES_PASSWORD'),
-				database: configService.get('POSTGRES_DB'),
+				host: process.env.POSTGRES_HOST,
+				port: Number(process.env.POSTGRES_PORT),
+				username: process.env.POSTGRES_USER,
+				password: process.env.POSTGRES_PASSWORD,
+				database: process.env.POSTGRES_DB,
 				autoLoadModels: true,
 				synchronize: false,
-				timezone: configService.get('POSTGRES_TIMEZONE'),
+				timezone: process.env.POSTGRES_TIMEZONE,
 				define: {
 					timestamps: false,
 				},
