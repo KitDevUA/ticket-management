@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { DevtoolsModule } from '@nestjs/devtools-integration';
 import { TicketModule } from './tickets/ticket.module';
+import {HealthModule} from "./health/health.module";
 
 @Module({
 	imports: [
@@ -29,6 +30,7 @@ import { TicketModule } from './tickets/ticket.module';
 				autoLoadModels: true,
 			}),
 		}),
+		HealthModule,
 		TicketModule,
 	],
 })
