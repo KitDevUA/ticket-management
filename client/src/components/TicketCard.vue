@@ -1,5 +1,10 @@
 <template>
-<n-card :class="{ 'tourist-card': isTourist }">
+<n-card
+	class="ticket-card"
+	:class="{ 'tourist-card': isTourist }"
+	hoverable
+	@click="navigateToDetails"
+>
 	<n-space vertical>
 		<n-text strong class="title">{{ ticket.title }}</n-text>
 		<n-text :depth="3" class="description">
@@ -13,11 +18,19 @@
 </n-card>
 </template>
 
-<script setup lang="ts">
-import { NCard, NSpace, NText, NImage } from 'naive-ui'
-import type { Ticket } from '@/types/tickets'
+<style lang="sass" scoped>
+.ticket-card
+	cursor: pointer
+</style>
 
-defineProps<{
+<script setup lang="ts">
+import { NCard, NSpace, NText } from 'naive-ui'
+import type { Ticket } from '@/types/tickets'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const props = defineProps<{
 	ticket: Ticket
 	isTourist: boolean
 }>()
@@ -28,6 +41,13 @@ const formatDate = (date: string) =>
 		month: 'long',
 		day: 'numeric',
 	})
+
+const navigateToDetails = () => {
+	router.push({
+		name: 'ticket-details',
+		params: { id: props.ticket.ticket_id }
+	})
+}
 </script>
 
 <style lang="sass" scoped>

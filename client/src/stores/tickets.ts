@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import type { PaginatedResponse, TicketsFilter } from '@/types/tickets'
+import type { PaginatedResponse, Ticket, TicketsFilter } from '@/types/tickets'
 import { ticketsApi } from '@/services/api'
 
 export const useTicketsStore = defineStore('tickets', () => {
@@ -11,6 +11,8 @@ export const useTicketsStore = defineStore('tickets', () => {
 	const searchQuery = ref('')
 	const userType = ref<'local' | 'tourist'>('local')
 	const currentPage = ref(1)
+
+	const currentTicket = ref<Ticket | null>(null)
 
 	function updateFilters(filters: Partial<TicketsFilter>) {
 		if (filters.search !== undefined) searchQuery.value = filters.search
@@ -45,6 +47,19 @@ export const useTicketsStore = defineStore('tickets', () => {
 		}
 	}
 
+	async function fetchTicketById(id: number) {
+		try {
+			isLoading.value = true
+			error.value = null
+			currentTicket.value = await ticketsApi.getTicketById(id)
+		} catch (e) {
+			error.value = 'Failed to load ticket'
+			console.error(e)
+		} finally {
+			isLoading.value = false
+		}
+	}
+
 	return {
 		tickets,
 		isLoading,
@@ -54,6 +69,8 @@ export const useTicketsStore = defineStore('tickets', () => {
 		currentPage,
 		updateFilters,
 		resetFilters,
-		fetchTickets
+		fetchTickets,
+		currentTicket,
+		fetchTicketById
 	}
 })
