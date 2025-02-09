@@ -71,7 +71,7 @@ import { watch, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useTicketsStore } from '@/stores/tickets'
 import { storeToRefs } from 'pinia'
-import { debounce } from 'lodash-es'
+import debounce from 'just-debounce-it';
 import TicketCard from '@/components/TicketCard.vue'
 import EmptyState from '@/components/EmptyState.vue'
 

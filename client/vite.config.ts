@@ -4,6 +4,7 @@ import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import Components from 'unplugin-vue-components/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
+import compression from 'vite-plugin-compression';
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
@@ -15,8 +16,28 @@ export default defineConfig(({ mode }) => {
 			vueDevTools(),
 			Components({
 				resolvers: [NaiveUiResolver()]
-			})
+			}),
+			compression({
+				algorithm: 'brotliCompress',
+			}),
 		],
+		build: {
+			rollupOptions: {
+				output: {
+					manualChunks(id) {
+						if (id.includes('node_modules')) {
+							if (id.includes('naive-ui')) {
+								return 'naive-ui';
+							}
+							if (id.includes('vue')) {
+								return 'vue';
+							}
+							return 'vendor';
+						}
+					},
+				},
+			},
+		},
 		resolve: {
 			alias: {
 				'@': fileURLToPath(new URL('./src', import.meta.url))
