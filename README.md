@@ -2,6 +2,15 @@
 
 Welcome to the __Ticket Management System__. Below you will find the instructions to get the project up and running on your local development environment.
 
+## Links
+- [Demo](https://kitdev-ticket-management.vercel.app/)
+- [API Documentation](https://kitdev-ticket-management.up.railway.app/api/docs)
+
+## Technologies Used
+- **DevOps**: Docker, Railway, Vercel
+- **Backend**: Node.js, Nest.js, TypeScript, Sequelize, PostgreSQL, Swagger
+- **Frontend**: Vue3, TypeScript, Pinia, Axios
+
 ## Prerequisites
 
 Before you begin, make sure you have Docker installed on your machine. Also, you should have Node.js and npm installed to handle various scripts that manage the application lifecycle.
@@ -50,6 +59,9 @@ Follow these steps to set up the project initially:
 - Debounced API calls
 - Optimized bundle size
 - Docker containerization
+
+## Coming Soon
+- Tests
 
 # Note
 **This project was developed as a technical assessment, completed within one day. It demonstrates the ability to:**
