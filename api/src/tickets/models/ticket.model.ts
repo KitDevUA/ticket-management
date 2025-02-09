@@ -4,6 +4,7 @@ import {
 	Column,
 	DataType,
 	BelongsTo,
+	ForeignKey,
 } from 'sequelize-typescript';
 import { Sequelize } from 'sequelize';
 import { TicketCreationAttrs } from '../dto/tickets.dto';
@@ -40,6 +41,7 @@ export class Ticket extends Model<Ticket, TicketCreationAttrs> {
 	@Column({ type: DataType.STRING, allowNull: false })
 	location!: string;
 
+	@ForeignKey(() => UserType)
 	@Column({ type: DataType.INTEGER, allowNull: false })
 	user_type_id!: number;
 
