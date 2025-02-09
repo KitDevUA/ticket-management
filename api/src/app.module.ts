@@ -3,6 +3,8 @@ import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { DevtoolsModule } from '@nestjs/devtools-integration';
 import { TicketModule } from './tickets/ticket.module';
+import {Ticket} from "./tickets/models/ticket.model";
+import {UserType} from "./tickets/models/user-type.model";
 
 @Module({
 	imports: [
@@ -26,6 +28,7 @@ import { TicketModule } from './tickets/ticket.module';
 				database: process.env.POSTGRES_DB,
 				synchronize: false,
 				timezone: process.env.POSTGRES_TIMEZONE,
+				models: [Ticket, UserType],
 			}),
 		}),
 		TicketModule,
