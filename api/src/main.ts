@@ -42,8 +42,7 @@ async function start() {
 	});
 	SwaggerModule.setup('/api/docs', app, document);
 
-	await app.listen(PORT, () =>
-		console.info('\x1b[34m%s\x1b[0m', `Server started on port = ${PORT}`),
-	);
+	await app.listen(PORT, '0.0.0.0');
+	console.info('\x1b[34m%s\x1b[0m', `Server started on port = ${PORT}`);
 }
 void start();
