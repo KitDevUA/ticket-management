@@ -3,7 +3,7 @@ builder = "nixpacks"
 buildCommand = "npm run build"
 
 [deploy]
-startCommand = "sh -c \"npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all && node dist/main\""
+startCommand = "npm run start"
 healthcheckPath = "/api/health"
-healthcheckTimeout = 100
+healthcheckTimeout = 300
 restartPolicyType = "on_failure"

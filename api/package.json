@@ -19,7 +19,7 @@
 		"local:dev": "npm run local:apply:migration && npm run local:apply:seed && nest start --watch",
 		"local:clean": "npm run local:docker:down && docker volume prune -f",
 		"dev": "dotenv -e .env -- nest start --watch",
-		"start": "sh -c \"npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all && node dist/main\"",
+		"start": "sh -c \"npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all && node dist/src/main\"",
 		"build": "nest build",
 		"format": "prettier --write \"src/**/*.ts\"",
 		"lint": "ESLINT_USE_FLAT_CONFIG=false eslint \"{src,apps,libs,migrations,seeds}/**/*.{ts,js}\" --fix",
