@@ -1,15 +1,24 @@
 {
 	"extends": "../tsconfig.json",
+	"include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
 	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./src/*"]
+		},
+		"types": [
+			"node",
+			"vite/client"
+		],
+		"preserveValueImports": false,
+		"importsNotUsedAsValues": "remove",
 		"module": "esnext",
 		"moduleResolution": "node",
-		"jsx": "preserve",
-		"sourceMap": true,
-		"resolveJsonModule": true,
-		"isolatedModules": true,
-		"lib": ["esnext", "dom"],
-		"baseUrl": "."
+		"target": "esnext"
 	},
-	"include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue"],
-	"exclude": ["node_modules", "dist"]
+	"references": [
+		{
+			"path": "./tsconfig.node.json"
+		}
+	]
 }

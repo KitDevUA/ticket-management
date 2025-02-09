@@ -15,7 +15,7 @@ import { Op } from 'sequelize';
 
 @Injectable()
 export class TicketService {
-	private readonly ITEMS_PER_PAGE = 10;
+	private readonly ITEMS_PER_PAGE = 12;
 
 	constructor(
 		@InjectModel(Ticket)
