@@ -24,12 +24,8 @@ import { TicketModule } from './tickets/ticket.module';
 				username: process.env.POSTGRES_USER,
 				password: process.env.POSTGRES_PASSWORD,
 				database: process.env.POSTGRES_DB,
-				autoLoadModels: true,
 				synchronize: false,
 				timezone: process.env.POSTGRES_TIMEZONE,
-				define: {
-					timestamps: false,
-				},
 			}),
 		}),
 		TicketModule,
