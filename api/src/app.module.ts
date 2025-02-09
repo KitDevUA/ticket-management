@@ -8,7 +8,7 @@ import { TicketModule } from './tickets/ticket.module';
 	imports: [
 		ConfigModule.forRoot({
 			isGlobal: true,
-			envFilePath: '../.env',
+			envFilePath: '.env',
 		}),
 		DevtoolsModule.register({
 			http: process.env.NODE_ENV !== 'production',
