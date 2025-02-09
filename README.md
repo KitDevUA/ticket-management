@@ -7,7 +7,7 @@ Welcome to the __Ticket Management System__. Below you will find the instruction
 - [API Documentation](https://kitdev-ticket-management.up.railway.app/api/docs)
 
 ## Technologies Used
-- **DevOps**: Docker, Railway, Vercel
+- **DevOps**: Docker, Railway, Vercel, CI/CD, GitHub Actions, Health checks
 - **Backend**: Node.js, Nest.js, TypeScript, Sequelize, PostgreSQL, Swagger
 - **Frontend**: Vue3, TypeScript, Pinia, Axios
 
@@ -59,9 +59,6 @@ Follow these steps to set up the project initially:
 - Debounced API calls
 - Optimized bundle size
 - Docker containerization
-
-## Coming Soon
-- Tests
 
 # Note
 **This project was developed as a technical assessment, completed within one day. It demonstrates the ability to:**
