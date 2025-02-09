@@ -5,8 +5,8 @@ import {
 	DataType,
 	BelongsTo,
 	ForeignKey,
+	Sequelize,
 } from 'sequelize-typescript';
-import { Sequelize } from 'sequelize';
 import { TicketCreationAttrs } from '../dto/tickets.dto';
 import { UserType } from './user-type.model';
 
