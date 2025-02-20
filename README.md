@@ -6,6 +6,8 @@ Welcome to the __Ticket Management System__. Below you will find the instruction
 - [Demo](https://kitdev-ticket-management.vercel.app/)
 - [API Documentation](https://kitdev-ticket-management.up.railway.app/api/docs)
 
+> Note: The backend may fall asleep if there were no requests for some time, and might need about <ins>20 seconds</ins> after the first request to wake up.
+
 ## Technologies Used
 - **DevOps**: Docker, Railway, Vercel, CI/CD, GitHub Actions, Health checks
 - **Backend**: Node.js, Nest.js, TypeScript, Sequelize, PostgreSQL, Swagger
